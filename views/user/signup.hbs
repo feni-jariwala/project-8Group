@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign-up form</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+  <link rel='stylesheet'  href="../../css/mystyle.css" type='text/css'>
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>Welcome User </span> Sign-up</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+        <h3>Event Management</h3>
+        <ul>
+          <li><i class="fa fa-road"></i>Uka Tarsadiya University</li>
+          <li><i class="fa fa-phone"></i> (+91) 7990422916</li>
+          <li><i class="fa fa-envelope"></i>17bmiit129@gmail.com</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Registration</h3>
+        {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{#each messages }}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+        <form action="/user/signup" method="POST">
+          <p>
+            <label>Firstname</label>
+            <input type="text" id="username" name="username" required>
+          </p>
+          <p>
+            <label>Password</label>
+            <input type="password" id="password" name="password" required>
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" id="emailId" name="emailId" required>
+          </p>
+          <p>
+            <label>Phone Number</label>
+            <input type="number" id="cnno" name="cnno" required>
+          </p>
+         
+          <p class="full">
+              <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
